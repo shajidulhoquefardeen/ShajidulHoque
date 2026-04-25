@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
 import spaceBg from "@/../public/assets/Space.png";
@@ -26,8 +25,6 @@ export default function WorkPageClient({ projects }: WorkPageClientProps) {
 
   return (
     <>
-      <Navbar />
-
       {/* ─── Persistent space background (fixed to viewport) ─── */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <Image

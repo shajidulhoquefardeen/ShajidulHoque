@@ -2,7 +2,6 @@
 
 import { useState, Suspense } from "react";
 import Image from "next/image";
-import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Preloader from "@/components/sections/Preloader";
 import Hero from "@/components/sections/Hero";
@@ -30,9 +29,6 @@ export default function HomeContent({
     <>
       {/* Preloader — covers everything, auto-dismisses */}
       <Preloader onComplete={() => setIsPreloaderComplete(true)} />
-
-      {/* Navigation */}
-      <Navbar />
 
       {/* ─── Persistent space background (fixed to viewport) ─── */}
       <div className="fixed inset-0 z-0 pointer-events-none">

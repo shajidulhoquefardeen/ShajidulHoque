@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { montserrat, montserratMono } from "@/lib/fonts";
+import Navbar from "@/components/layout/Navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -42,6 +43,7 @@ export default function RootLayout({
       className={`${montserrat.variable} ${montserratMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#0a0a0f] text-white">
+        <Navbar />
         {children}
       </body>
     </html>

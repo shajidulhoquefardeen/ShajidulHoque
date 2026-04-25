@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import spaceBg from "@/../public/assets/Space.png";
 import { client } from "@/sanity/client";
@@ -48,8 +47,6 @@ export default async function ProjectDetail({
 
   return (
     <>
-      <Navbar />
-
       {/* ─── Persistent space background (fixed to viewport) ─── */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <Image

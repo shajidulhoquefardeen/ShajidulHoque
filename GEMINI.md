@@ -163,6 +163,12 @@ Handles form submissions from the `SayHi` component.
 - **Incremental Static Regeneration (ISR) (April 2026)**:
   - **Data Revalidation**: Implemented `export const revalidate = 60;` in `app/page.tsx`, `app/blog/page.tsx`, and `app/work/page.tsx`. This ensures that Next.js automatically fetches fresh data from Sanity in the background at most once every minute, allowing new posts and projects to appear on the live site without manual redeploys.
 
+- **Global Navbar Restoration (April 2026)**:
+  - **Root Layout Integration**: Moved the `Navbar` component from individual page files to the `src/app/layout.tsx` file. This ensures the navigation bar is automatically present on all routes, including `/blog` and `/blog/[slug]`, without manual rendering.
+  - **Conditional Visibility**: Added a check in `Navbar.tsx` to automatically hide the component on `/admin` paths to avoid overlapping with the Sanity Studio interface.
+  - **Z-Index Fix**: Increased the Navbar `z-index` from `z-40` to `z-50` to ensure it stays above the space background and content layers on all routes.
+  - **Cleanup**: Removed redundant `Navbar` imports and rendering from `HomeContent.tsx`, `WorkPageClient.tsx`, `work/[slug]/page.tsx`, and `about/page.tsx`.
+
 - **Project Detail Gallery (April 2026)**:
   - **Schema Update**: Added a `gallery` field (`type: "array", of: [{ type: "image" }]`) to the `project` Sanity schema to support uploading multiple images.
   - **GROQ Update**: Updated `PROJECT_DETAIL_QUERY` in `src/sanity/queries.ts` to fetch the new `gallery` array.

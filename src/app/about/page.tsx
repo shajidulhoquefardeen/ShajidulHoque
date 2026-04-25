@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 // We import the assets as required
@@ -14,9 +13,6 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* Navigation */}
-      <Navbar />
-
       {/* Global Background */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <Image

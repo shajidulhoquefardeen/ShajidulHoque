@@ -18,6 +18,9 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  // Hide Navbar on /admin routes (Sanity Studio)
+  if (pathname?.startsWith("/admin")) return null;
+
   // Track scroll position for navbar background
   useEffect(() => {
     // Reset scrolled state on route change
@@ -95,7 +98,7 @@ export default function Navbar() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-space-black/80 backdrop-blur-xl"
           : "bg-transparent"
