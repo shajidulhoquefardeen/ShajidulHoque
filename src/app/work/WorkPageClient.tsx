@@ -118,9 +118,17 @@ export default function WorkPageClient({ projects }: WorkPageClientProps) {
 
                     {/* Skill Pills */}
                     <div className="mt-auto flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                      {project.tags?.map((tag: string, index: number) => (
+                        <span
+                          key={`tag-${index}`}
+                          className="px-2.5 py-1 text-xs rounded-full border border-terminal-yellow/20 text-terminal-yellow/70 bg-terminal-yellow/5"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                       {project.skills?.map((skill: string, index: number) => (
                         <span
-                          key={index}
+                          key={`skill-${index}`}
                           className="px-2.5 py-1 text-xs rounded-full border border-white/10 text-white/70 bg-white/5"
                         >
                           {skill}

@@ -169,6 +169,12 @@ Handles form submissions from the `SayHi` component.
   - **Z-Index Fix**: Increased the Navbar `z-index` from `z-40` to `z-50` to ensure it stays above the space background and content layers on all routes.
   - **Cleanup**: Removed redundant `Navbar` imports and rendering from `HomeContent.tsx`, `WorkPageClient.tsx`, `work/[slug]/page.tsx`, and `about/page.tsx`.
 
+- **Tags & Skills Restoration (April 2026)**:
+  - **Project Detail Page**: Restored the rendering of `skills` and `tags` below the project description in `work/[slug]/page.tsx`.
+  - **Featured Project Cards**: Re-implemented `project.tags` mapping in `FeaturedPosts.tsx`.
+  - **Work Page Cards**: Updated `WorkPageClient.tsx` to display both `tags` and `skills`.
+  - **Visual Consistency**: Standardized tag styling across `FeaturedPosts.tsx` and `MoreWorks.tsx`.
+ 
 - **Project Detail Gallery (April 2026)**:
   - **Schema Update**: Added a `gallery` field (`type: "array", of: [{ type: "image" }]`) to the `project` Sanity schema to support uploading multiple images.
   - **GROQ Update**: Updated `PROJECT_DETAIL_QUERY` in `src/sanity/queries.ts` to fetch the new `gallery` array.

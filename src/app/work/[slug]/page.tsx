@@ -75,6 +75,28 @@ export default async function ProjectDetail({
           <p className="text-lg md:text-xl text-white/80 leading-relaxed text-center font-medium">
             {project.fullDescription}
           </p>
+ 
+          {/* Skills & Tags */}
+          {(project.skills || project.tags) && (
+            <div className="mt-8 flex flex-wrap justify-center gap-2">
+              {project.skills?.map((skill: string, index: number) => (
+                <span
+                  key={`skill-${index}`}
+                  className="inline-block border border-terminal-yellow/30 text-terminal-yellow text-sm px-3 py-1 rounded-sm bg-terminal-yellow/5 font-mono"
+                >
+                  {skill}
+                </span>
+              ))}
+              {project.tags?.map((tag: string, index: number) => (
+                <span
+                  key={`tag-${index}`}
+                  className="inline-block border border-white/20 text-white/70 text-sm px-3 py-1 rounded-sm bg-white/5 font-mono"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* ─── Media Container ─── */}

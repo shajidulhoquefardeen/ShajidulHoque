@@ -62,7 +62,7 @@ export default function MoreWorks({ projects }: MoreWorksProps) {
                     {project.tags?.map((tag: string, idx: number) => (
                       <span
                         key={idx}
-                        className="px-2 py-0.5 text-[10px] rounded-full border border-white/10 text-white/50"
+                        className="px-2 py-0.5 text-[10px] font-mono border border-terminal-yellow/30 text-terminal-yellow/80 rounded-sm"
                       >
                         {tag}
                       </span>
