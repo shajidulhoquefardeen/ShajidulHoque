@@ -81,18 +81,21 @@ export default function FeaturedPosts({ projects }: FeaturedPostsProps) {
                     </p>
  
                     {/* Project Tags */}
-                    {project.tags && (
-                      <div className="flex flex-wrap gap-2 pt-1">
-                        {project.tags.map((tag: string, index: number) => (
-                          <span
-                            key={index}
-                            className="px-2 py-0.5 text-[10px] font-mono border border-terminal-yellow/30 text-terminal-yellow/80 rounded-sm"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {project.category && (
+                        <span className="px-2 py-0.5 text-[10px] font-mono border border-terminal-yellow text-terminal-yellow bg-terminal-yellow/10 rounded-sm">
+                          {project.category}
+                        </span>
+                      )}
+                      {project.tags?.map((tag: string, index: number) => (
+                        <span
+                          key={index}
+                          className="px-2 py-0.5 text-[10px] font-mono border border-terminal-yellow/30 text-terminal-yellow/80 rounded-sm"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
 
                     {/* Read more link */}
                     <div className="pt-2">

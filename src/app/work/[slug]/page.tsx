@@ -77,8 +77,14 @@ export default async function ProjectDetail({
           </p>
  
           {/* Skills & Tags */}
-          {(project.skills || project.tags) && (
+          {(project.skills || project.tags || project.category) && (
             <div className="mt-8 flex flex-wrap justify-center gap-2">
+              {/* Category as primary tag */}
+              {project.category && (
+                <span className="inline-block border border-terminal-yellow text-terminal-yellow text-sm px-3 py-1 rounded-sm bg-terminal-yellow/10 font-mono">
+                  {project.category}
+                </span>
+              )}
               {project.skills?.map((skill: string, index: number) => (
                 <span
                   key={`skill-${index}`}

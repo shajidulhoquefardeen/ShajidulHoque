@@ -58,16 +58,21 @@ export default function MoreWorks({ projects }: MoreWorksProps) {
                   <h3 className="text-sm font-medium text-white/90 group-hover:text-terminal-yellow transition-colors truncate">
                     {project.title}
                   </h3>
-                  <div className="mt-2 flex flex-wrap gap-1.5">
-                    {project.tags?.map((tag: string, idx: number) => (
-                      <span
-                        key={idx}
-                        className="px-2 py-0.5 text-[10px] font-mono border border-terminal-yellow/30 text-terminal-yellow/80 rounded-sm"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {project.category && (
+                        <span className="px-2 py-0.5 text-[10px] font-mono border border-terminal-yellow text-terminal-yellow bg-terminal-yellow/10 rounded-sm">
+                          {project.category}
+                        </span>
+                      )}
+                      {project.tags?.map((tag: string, idx: number) => (
+                        <span
+                          key={idx}
+                          className="px-2 py-0.5 text-[10px] font-mono border border-terminal-yellow/30 text-terminal-yellow/80 rounded-sm"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                 </div>
               </Link>
             </motion.div>

@@ -117,7 +117,14 @@ export default function WorkPageClient({ projects }: WorkPageClientProps) {
                     </p>
 
                     {/* Skill Pills */}
-                    <div className="mt-auto flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                    <div className="mt-auto flex flex-wrap gap-2 pt-4 border-t border-white/10">
+                      {/* Always show category as a tag */}
+                      {project.category && (
+                        <span className="px-2.5 py-1 text-xs rounded-full border border-terminal-yellow text-terminal-yellow bg-terminal-yellow/10 font-mono">
+                          {project.category}
+                        </span>
+                      )}
+                      
                       {project.tags?.map((tag: string, index: number) => (
                         <span
                           key={`tag-${index}`}
