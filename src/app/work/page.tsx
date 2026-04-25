@@ -2,6 +2,8 @@ import { client } from "@/sanity/client";
 import { ALL_PROJECTS_QUERY } from "@/sanity/queries";
 import WorkPageClient from "./WorkPageClient";
 
+export const revalidate = 60;
+
 export const metadata = {
   title: "Work - Shajidul Hoque",
   description: "Projects and work by Shajidul Hoque.",

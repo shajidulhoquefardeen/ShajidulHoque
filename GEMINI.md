@@ -160,6 +160,9 @@ Handles form submissions from the `SayHi` component.
   - **Concurrent Data Fetching**: Verified and ensured that the Home page server component (`app/page.tsx`) uses `Promise.all()` to fetch featured projects, more works, and recent blog posts concurrently rather than sequentially.
   - **Streaming & Suspense**: Integrated React `Suspense` boundaries around heavy content sections (`FeaturedPosts`, `MoreWorks`, `RecentThoughts`) in `HomeContent.tsx`. This allows the page shell to render immediately while dynamic content loads in the background.
 
+- **Incremental Static Regeneration (ISR) (April 2026)**:
+  - **Data Revalidation**: Implemented `export const revalidate = 60;` in `app/page.tsx`, `app/blog/page.tsx`, and `app/work/page.tsx`. This ensures that Next.js automatically fetches fresh data from Sanity in the background at most once every minute, allowing new posts and projects to appear on the live site without manual redeploys.
+
 - **Project Detail Gallery (April 2026)**:
   - **Schema Update**: Added a `gallery` field (`type: "array", of: [{ type: "image" }]`) to the `project` Sanity schema to support uploading multiple images.
   - **GROQ Update**: Updated `PROJECT_DETAIL_QUERY` in `src/sanity/queries.ts` to fetch the new `gallery` array.

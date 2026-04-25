@@ -5,6 +5,8 @@ import { client } from "@/sanity/client";
 import { urlFor } from "@/sanity/client";
 import { ALL_POSTS_QUERY } from "@/sanity/queries";
 
+export const revalidate = 60;
+
 export const metadata = {
   title: "Blog - Shajidul Hoque",
   description: "Recent thoughts and articles by Shajidul Hoque.",

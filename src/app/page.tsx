@@ -6,6 +6,8 @@ import {
 } from "@/sanity/queries";
 import HomeContent from "@/components/HomeContent";
 
+export const revalidate = 60;
+
 export default async function Home() {
   let featuredProjects = [];
   let moreWorks = [];
