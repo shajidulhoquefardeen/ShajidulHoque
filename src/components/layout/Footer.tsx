@@ -12,6 +12,8 @@ import {
 import MuxVideoPlayer from "@/components/shared/MuxVideoPlayer";
 import spaceFooterImg from "@/../public/assets/space-footer.png";
 
+import { SOCIAL_LINKS } from "@/lib/constants";
+
 const MUX_PLAYBACK_ID = "Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g";
 
 const SOCIAL_ICON_MAP: Record<string, React.ComponentType<{ size?: number; weight?: "thin" | "light" | "regular" | "bold" | "fill" | "duotone" }>> = {
@@ -21,14 +23,6 @@ const SOCIAL_ICON_MAP: Record<string, React.ComponentType<{ size?: number; weigh
   XLogo,
   GithubLogo,
 };
-
-const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "https://linkedin.com/in/shajidul", icon: "LinkedinLogo" },
-  { label: "Instagram", href: "https://instagram.com/shajidul", icon: "InstagramLogo" },
-  { label: "Facebook", href: "https://facebook.com/shajidul", icon: "FacebookLogo" },
-  { label: "X", href: "https://x.com/shajidul", icon: "XLogo" },
-  { label: "GitHub", href: "https://github.com/shajidul", icon: "GithubLogo" },
-];
 
 export default function Footer() {
   return (

@@ -34,15 +34,18 @@ export async function POST(request: Request) {
       const resend = new Resend(resendApiKey);
 
       await resend.emails.send({
-        from: "Portfolio Contact <onboarding@resend.dev>",
-        to: process.env.CONTACT_EMAIL || "shajidulhoquefinden@gmail.com",
-        subject: `New message from ${name}`,
+        from: `"${name}" <${email}>`,
+        to: process.env.CONTACT_EMAIL || "Shajidulhoquefardeen@gmail.com",
+        subject: `New Portfolio Message from ${name}`,
         html: `
-          <h2>New Contact Form Submission</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Message:</strong></p>
-          <p>${message}</p>
+          <div style="font-family: sans-serif; max-width: 600px; margin: auto; border: 1px solid #eee; padding: 20px;">
+            <h2 style="color: #333;">New Contact Form Submission</h2>
+            <p><strong>From:</strong> ${name} (${email})</p>
+            <p><strong>Message:</strong></p>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 5px;">
+              ${message.replace(/\n/g, '<br>')}
+            </div>
+          </div>
         `,
       });
     }

@@ -175,6 +175,12 @@ Handles form submissions from the `SayHi` component.
   - **Work Page Cards**: Updated `WorkPageClient.tsx` to display both `tags` and `skills`.
   - **Visual Consistency**: Standardized tag styling across `FeaturedPosts.tsx` and `MoreWorks.tsx`.
  
+- **Contact Info & Socials Update (April 2026)**:
+  - **Global Constants**: Updated the primary contact email to `Shajidulhoquefardeen@gmail.com` and phone number to `+8801647465507` in `src/lib/constants.ts`.
+  - **Social Links**: Updated all URLs for LinkedIn, GitHub, X, Instagram, and Facebook across the site.
+  - **Footer Refactor**: Refactored `Footer.tsx` to source its social links from the global constants file, ensuring a single source of truth for all external links.
+  - **API Route**: Updated the fallback recipient email in the contact form API route to match the new professional address.
+ 
 - **Project Detail Gallery (April 2026)**:
   - **Schema Update**: Added a `gallery` field (`type: "array", of: [{ type: "image" }]`) to the `project` Sanity schema to support uploading multiple images.
   - **GROQ Update**: Updated `PROJECT_DETAIL_QUERY` in `src/sanity/queries.ts` to fetch the new `gallery` array.
