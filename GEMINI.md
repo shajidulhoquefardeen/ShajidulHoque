@@ -186,4 +186,15 @@ Handles form submissions from the `SayHi` component.
   - **GROQ Update**: Updated `PROJECT_DETAIL_QUERY` in `src/sanity/queries.ts` to fetch the new `gallery` array.
   - **Frontend Layout**: Refactored `src/app/work/[slug]/page.tsx` to render the `gallery` array as a responsive CSS photo grid (`grid-cols-1 md:grid-cols-2 lg:grid-cols-3`). Maintained backward compatibility by conditionally falling back to the legacy `fullImage` rendering if no gallery is present.
 
+
+- **Dynamic Video Showcase (April 2026)**:
+  - **Muted Autoplay**: Updated `getYouTubeEmbedUrl` in `work/[slug]/page.tsx` to force `autoplay=1`, `mute=1`, `loop=1`, and `controls=0`.
+  - **ID Extraction**: Improved parsing to extract YouTube Video IDs from standard, shortened, and embed URLs.
+  - **Iframe Permissions**: Enforced `allow="autoplay; encrypted-media"` on the project detail `<iframe>` to permit dynamic background-style playback across all browsers.
+
+- **Typography & Alignment Refinement (April 2026)**:
+  - **Header Scaling**: Reduced project title font size to `text-3xl md:text-4xl` for a more proportionate and elegant appearance.
+  - **Left-Alignment Enforcement**: Switched both the project title and full description from centered/justified to strict `text-left` alignment, ensuring a clean vertical margin.
+  - **Width Equalization**: Introduced a shared `max-w-5xl` content wrapper for both the header and description. Removed individual width constraints (`max-w-4xl`) to ensure both elements wrap at the exact same horizontal boundary, creating a balanced and flush layout.
+
 *End of Document. Update this log upon adding new sections, modifying data structures, or altering the core architecture.*

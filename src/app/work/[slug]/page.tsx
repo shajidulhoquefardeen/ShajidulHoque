@@ -6,23 +6,29 @@ import { client } from "@/sanity/client";
 import { urlFor } from "@/sanity/client";
 import { PROJECT_DETAIL_QUERY } from "@/sanity/queries";
 
-function getYouTubeEmbedUrl(url: string) {
+function getYouTubeEmbedUrl(url: string | undefined | null) {
   if (!url) return null;
   const trimmedUrl = url.trim();
   
-  // If it's already an embed URL, just return it trimmed
-  if (trimmedUrl.includes("youtube.com/embed/")) {
-    return trimmedUrl;
-  }
-
   let videoId = "";
-  if (trimmedUrl.includes("youtu.be/")) {
-    videoId = trimmedUrl.split("youtu.be/")[1].split("?")[0];
-  } else if (trimmedUrl.includes("v=")) {
+  
+  // Handle youtube.com/watch?v=ID or &v=ID
+  if (trimmedUrl.includes("v=")) {
     videoId = trimmedUrl.split("v=")[1].split("&")[0];
+  } 
+  // Handle youtu.be/ID
+  else if (trimmedUrl.includes("youtu.be/")) {
+    videoId = trimmedUrl.split("youtu.be/")[1].split("?")[0];
+  } 
+  // Handle youtube.com/embed/ID
+  else if (trimmedUrl.includes("youtube.com/embed/")) {
+    videoId = trimmedUrl.split("youtube.com/embed/")[1].split("?")[0];
   }
 
-  return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+  if (!videoId) return null;
+
+  // Exact format: autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0
+  return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0`;
 }
 
 export default async function ProjectDetail({
@@ -63,46 +69,49 @@ export default async function ProjectDetail({
       </div>
 
       <main className="relative z-10 pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto min-h-screen">
-        {/* ─── Header Section ─── */}
-        <div className="mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight">
-            <span className="text-terminal-yellow">/</span>{project.title}
-          </h1>
-        </div>
+        {/* ─── Content Wrapper (Equalized Widths) ─── */}
+        <div className="max-w-5xl w-full">
+          {/* ─── Header Section ─── */}
+          <div className="mb-12">
+            <h1 className="text-3xl md:text-4xl font-bold text-white tracking-tight text-left">
+              <span className="text-terminal-yellow">/</span>{project.title}
+            </h1>
+          </div>
 
-        {/* ─── Description Section ─── */}
-        <div className="max-w-4xl mx-auto mb-20">
-          <p className="text-lg md:text-xl text-white/80 leading-relaxed text-center font-medium">
-            {project.fullDescription}
-          </p>
- 
-          {/* Skills & Tags */}
-          {(project.skills || project.tags || project.category) && (
-            <div className="mt-8 flex flex-wrap justify-center gap-2">
-              {/* Category as primary tag */}
-              {project.category && (
-                <span className="inline-block border border-terminal-yellow text-terminal-yellow text-sm px-3 py-1 rounded-sm bg-terminal-yellow/10 font-mono">
-                  {project.category}
-                </span>
-              )}
-              {project.skills?.map((skill: string, index: number) => (
-                <span
-                  key={`skill-${index}`}
-                  className="inline-block border border-terminal-yellow/30 text-terminal-yellow text-sm px-3 py-1 rounded-sm bg-terminal-yellow/5 font-mono"
-                >
-                  {skill}
-                </span>
-              ))}
-              {project.tags?.map((tag: string, index: number) => (
-                <span
-                  key={`tag-${index}`}
-                  className="inline-block border border-white/20 text-white/70 text-sm px-3 py-1 rounded-sm bg-white/5 font-mono"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
+          {/* ─── Description Section ─── */}
+          <div className="mb-20">
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed text-left font-medium">
+              {project.fullDescription}
+            </p>
+   
+            {/* Skills & Tags */}
+            {(project.skills || project.tags || project.category) && (
+              <div className="mt-8 flex flex-wrap justify-start gap-2">
+                {/* Category as primary tag */}
+                {project.category && (
+                  <span className="inline-block border border-terminal-yellow text-terminal-yellow text-sm px-3 py-1 rounded-sm bg-terminal-yellow/10 font-mono">
+                    {project.category}
+                  </span>
+                )}
+                {project.skills?.map((skill: string, index: number) => (
+                  <span
+                    key={`skill-${index}`}
+                    className="inline-block border border-terminal-yellow/30 text-terminal-yellow text-sm px-3 py-1 rounded-sm bg-terminal-yellow/5 font-mono"
+                  >
+                    {skill}
+                  </span>
+                ))}
+                {project.tags?.map((tag: string, index: number) => (
+                  <span
+                    key={`tag-${index}`}
+                    className="inline-block border border-white/20 text-white/70 text-sm px-3 py-1 rounded-sm bg-white/5 font-mono"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
         {/* ─── Media Container ─── */}
@@ -114,7 +123,7 @@ export default async function ProjectDetail({
                 src={youtubeEmbedUrl}
                 title={`${project.title} Video Presentation`}
                 className="absolute inset-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="autoplay; encrypted-media"
                 allowFullScreen
               />
             </div>
