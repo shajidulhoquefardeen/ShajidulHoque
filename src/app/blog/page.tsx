@@ -36,12 +36,12 @@ export default async function BlogPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header */}
-          <div className="mb-16 text-center sm:text-left">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-montserrat tracking-tight mb-6 flex items-center justify-center sm:justify-start">
+          <div className="mb-16 text-left">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-montserrat tracking-tight mb-6 flex items-center justify-start">
               <span className="text-terminal-yellow">/</span>
               <span className="text-white">Blog</span>
             </h1>
-            <p className="text-white/70 text-lg leading-relaxed max-w-3xl mx-auto sm:mx-0">
+            <p className="text-white/70 text-lg leading-relaxed max-w-3xl mx-0">
               Writing about design, technology, and the intersection of both.
             </p>
           </div>
