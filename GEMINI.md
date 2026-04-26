@@ -22,7 +22,7 @@ GEMINI.ai/
 ├── public/assets/          # Static images (bg-hero.png, space-footer.png)
 ├── src/
 │   ├── app/                # Next.js App Router (page.tsx, layout.tsx, globals.css)
-│   │   ├── api/contact/    # Contact form API route (Resend integration)
+│   │   ├── api/contact/    # Contact form API route (Resend & Discord integration)
 │   │   └── work/           # Work portfolio gallery page (page.tsx)
 │   ├── components/         # All React components
 │   │   ├── layout/         # Navbar, Footer
@@ -199,5 +199,10 @@ Handles form submissions from the `SayHi` component.
 
 - **Blog Content Update (April 2026)**:
   - **Title & Description**: Replaced the "My Blog" header with "Blog" and updated the description to reflect the professional focus: "Writing about design, technology, and the intersection of both."
+
+- **Discord Webhook Integration (April 2026)**:
+  - **Real-time Notifications**: Implemented real-time Discord notifications for contact form submissions.
+  - **Configuration**: Added `DISCORD_WEBHOOK_URL` support in the environment variables.
+  - **API Enhancement**: Updated `/api/contact/route.ts` to send beautifully formatted Discord embeds containing the sender's name, email, and message details with the site's signature terminal-yellow accent color.
 
 *End of Document. Update this log upon adding new sections, modifying data structures, or altering the core architecture.*

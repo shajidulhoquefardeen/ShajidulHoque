@@ -50,6 +50,43 @@ export async function POST(request: Request) {
       });
     }
 
+    // Send to Discord if webhook URL is provided
+    const discordWebhookUrl = process.env.DISCORD_WEBHOOK_URL;
+    if (discordWebhookUrl) {
+      await fetch(discordWebhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          embeds: [
+            {
+              title: "🚀 New Contact Form Submission",
+              color: 0xf59e0b, // Terminal Yellow color
+              fields: [
+                {
+                  name: "👤 Name",
+                  value: name,
+                  inline: true,
+                },
+                {
+                  name: "📧 Email",
+                  value: email,
+                  inline: true,
+                },
+                {
+                  name: "💬 Message",
+                  value: message,
+                },
+              ],
+              footer: {
+                text: "Portfolio Contact Form",
+              },
+              timestamp: new Date().toISOString(),
+            },
+          ],
+        }),
+      });
+    }
+
     return NextResponse.json(
       { success: true, message: "Message sent successfully!" },
       { status: 200 }
