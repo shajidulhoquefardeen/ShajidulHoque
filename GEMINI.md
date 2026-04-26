@@ -205,4 +205,8 @@ Handles form submissions from the `SayHi` component.
   - **Configuration**: Added `DISCORD_WEBHOOK_URL` support in the environment variables.
   - **API Enhancement**: Updated `/api/contact/route.ts` to send beautifully formatted Discord embeds containing the sender's name, email, and message details with the site's signature terminal-yellow accent color.
 
+- **Hero Section Mobile Refinement (April 2026)**:
+  - **Vertical Alignment**: Pushed the Hero content block (name, rotating roles, and buttons) higher up on mobile screens to prevent overlap with the subject in the background image. Achieved by adding `justify-start pt-[20vh]` to the main wrapper on mobile while preserving the desktop layout with `md:justify-end md:pt-0`.
+  - **Spacing & Proportions**: Adjusted the flex container to use `items-start md:items-end` with `gap-6 md:gap-0` on mobile to maintain tight, clean spacing between the text block and buttons without scattering elements.
+
 *End of Document. Update this log upon adding new sections, modifying data structures, or altering the core architecture.*

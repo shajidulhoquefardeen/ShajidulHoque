@@ -47,14 +47,14 @@ export default function Hero({ isPreloaderComplete }: HeroProps) {
       </div>
 
       {/* ─── Hero content ─── */}
-      <div className="relative z-10 w-full h-full max-w-7xl mx-auto flex flex-col justify-end">
+      <div className="relative z-10 w-full h-full max-w-7xl mx-auto flex flex-col justify-start pt-[20vh] md:justify-end md:pt-0">
         
         {/* Make sure this container spans the full width and uses flex-row */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={isPreloaderComplete ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          className="w-full flex flex-col md:flex-row justify-between items-end px-4 sm:px-10 pb-16 sm:pb-10"
+          className="w-full flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-0 px-4 sm:px-10 pb-16 sm:pb-10"
         >
           
           {/* LEFT SIDE: Name and Titles */}
@@ -80,7 +80,7 @@ export default function Hero({ isPreloaderComplete }: HeroProps) {
           </div>
 
           {/* RIGHT SIDE: Buttons */}
-          <div className="flex items-center mt-8 md:mt-0">
+          <div className="flex items-center mt-2 md:mt-0">
             
             {/* Buttons */}
             <div className="flex gap-3">
