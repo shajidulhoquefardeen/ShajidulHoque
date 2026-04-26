@@ -39,10 +39,10 @@ export default async function BlogPage() {
           <div className="mb-16 text-center sm:text-left">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold font-montserrat tracking-tight mb-6 flex items-center justify-center sm:justify-start">
               <span className="text-terminal-yellow">/</span>
-              <span className="text-white">My Blog</span>
+              <span className="text-white">Blog</span>
             </h1>
-            <p className="text-white/70 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto sm:mx-0">
-              Bringing innovative fashion concepts to life by leading our team with passion and vision. I am proud to be part of the first brand in Bangladesh to introduce reconstructed clothing—blending creativity with sustainability to produce unique, high-quality garments. I oversee the entire creative process, from concept development to final production, ensuring that every piece reflects our brand's commitment to originality and craftsmanship. My role also involves direct communication with garment suppliers to secure the right materials for our designs
+            <p className="text-white/70 text-lg leading-relaxed max-w-3xl mx-auto sm:mx-0">
+              Writing about design, technology, and the intersection of both.
             </p>
           </div>
 

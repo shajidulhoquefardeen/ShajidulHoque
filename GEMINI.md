@@ -197,4 +197,7 @@ Handles form submissions from the `SayHi` component.
   - **Left-Alignment Enforcement**: Switched both the project title and full description from centered/justified to strict `text-left` alignment, ensuring a clean vertical margin.
   - **Width Equalization**: Introduced a shared `max-w-5xl` content wrapper for both the header and description. Removed individual width constraints (`max-w-4xl`) to ensure both elements wrap at the exact same horizontal boundary, creating a balanced and flush layout.
 
+- **Blog Content Update (April 2026)**:
+  - **Title & Description**: Replaced the "My Blog" header with "Blog" and updated the description to reflect the professional focus: "Writing about design, technology, and the intersection of both."
+
 *End of Document. Update this log upon adding new sections, modifying data structures, or altering the core architecture.*
