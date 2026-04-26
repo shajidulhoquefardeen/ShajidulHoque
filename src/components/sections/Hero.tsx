@@ -13,7 +13,7 @@ import {
 } from "@phosphor-icons/react";
 import RotatingText from "@/components/shared/RotatingText";
 import { ROTATING_ROLES } from "@/lib/constants";
-import heroImg from "@/../public/assets/bg-hero.png";
+import heroImg from "@/../public/assets/newbg.png";
 
 interface HeroProps {
   isPreloaderComplete: boolean;

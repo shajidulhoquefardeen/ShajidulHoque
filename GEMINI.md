@@ -19,7 +19,7 @@ A highly aesthetic, premium space-themed personal portfolio for Shajidul Hoque. 
 
 ```text
 GEMINI.ai/
-├── public/assets/          # Static images (bg-hero.png, space-footer.png)
+├── public/assets/          # Static images (newbg.png, space-footer.png)
 ├── src/
 │   ├── app/                # Next.js App Router (page.tsx, layout.tsx, globals.css)
 │   │   ├── api/contact/    # Contact form API route (Resend & Discord integration)
@@ -82,7 +82,7 @@ The project uses a **strict dark mode** (`#0a0a0f` space black background).
   - **Structure**: Uses a full-width, bottom-aligned flex container (`flex-row justify-between items-end`) to separate the left text block and right UI elements.
   - **Left Block**: Features a highly balanced typographic scale. The main heading ("Shajidul Hoque") is scaled down (`text-3xl/4xl/5xl`) and strictly enforced to `font-semibold` (weight 600) via explicit Next.js font loading. The vertically stacked subheader ("A ↘", `RotatingText`, "Lost in Space") is scaled up (`text-xl/2xl/3xl`) to act as a strong supporting pillar rather than fine print.
   - **Right Block**: Contains two ultra-sleek buttons (a primary yellow "Contact Me" and a secondary white "View Projects" with minimal padding and `text-xs` sizing) pushed entirely to the right. Social icons have been removed from this section to declutter the focal area.
-  - **Background**: `bg-hero.png` positioned with `object-bottom` to ensure the subject's body is never cropped at the bottom viewport edge. Rendered at exactly `opacity-50` over a strict `bg-black` container to deeply dim the image into the shadows, making the foreground typography pop brilliantly.
+  - **Background**: `newbg.png` positioned with `object-bottom` to ensure the subject's body is never cropped at the bottom viewport edge. Rendered at exactly `opacity-50` over a strict `bg-black` container to deeply dim the image into the shadows, making the foreground typography pop brilliantly.
 - **`FeaturedPosts`**: Displays top 3 projects using `.glass-card`.
 - **`MoreWorks`**: A responsive 3-column grid of project thumbnails with hover overlays.
 - **`RecentThoughts`**: A sleek list of blog posts with numbered circle icons, read times, and dates.
@@ -208,5 +208,11 @@ Handles form submissions from the `SayHi` component.
 - **Hero Section Mobile Refinement (April 2026)**:
   - **Vertical Alignment**: Pushed the Hero content block (name, rotating roles, and buttons) higher up on mobile screens to prevent overlap with the subject in the background image. Achieved by adding `justify-start pt-[20vh]` to the main wrapper on mobile while preserving the desktop layout with `md:justify-end md:pt-0`.
   - **Spacing & Proportions**: Adjusted the flex container to use `items-start md:items-end` with `gap-6 md:gap-0` on mobile to maintain tight, clean spacing between the text block and buttons without scattering elements.
+
+- **Hero Background Image Update (April 2026)**:
+  - **Asset Update**: Replaced the original `bg-hero.png` with a cleaner background image (`newbg.png`). Maintained the `opacity-50` overlay styling in `Hero.tsx` for visual consistency.
+
+- **Favicon Update (April 2026)**:
+  - **Asset Replacement**: Replaced the default `favicon.ico` with `icon.jpeg` (sourced from the profile image `dpw.jpeg` used in the About section) to ensure brand consistency across browser tabs.
 
 *End of Document. Update this log upon adding new sections, modifying data structures, or altering the core architecture.*
